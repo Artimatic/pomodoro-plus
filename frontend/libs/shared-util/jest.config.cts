@@ -1,8 +1,8 @@
 module.exports = {
-  displayName: 'shared-ui',
-  preset: '../../jest.preset.js',
+  displayName: 'shared-util',
+  preset: '../../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/libs/shared-ui',
+  coverageDirectory: '../../../coverage/libs/shared-util',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

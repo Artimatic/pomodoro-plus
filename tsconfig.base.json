@@ -12,7 +12,10 @@
     "lib": ["ES2022", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@org/shared-util": ["frontend/libs/shared-util/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

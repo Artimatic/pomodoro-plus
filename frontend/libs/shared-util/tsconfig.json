@@ -1,9 +1,14 @@
 {
-  "extends": "../tsconfig.base.json",
+  "extends": "../../../tsconfig.base.json",
   "compilerOptions": {
-    "noPropertyAccessFromIndexSignature": true,
-    "experimentalDecorators": true,
+    "isolatedModules": true,
     "moduleResolution": "bundler",
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "emitDecoratorMetadata": false,
     "module": "preserve"
   },
   "angularCompilerOptions": {
@@ -16,13 +21,10 @@
   "include": [],
   "references": [
     {
-      "path": "./tsconfig.app.json"
+      "path": "./tsconfig.lib.json"
     },
     {
       "path": "./tsconfig.spec.json"
     }
-  ],
-  "paths": {
-    "@my-org/shared-ui": ["frontend/libs/shared-ui/src/index.ts"]
-  }
+  ]
 }
