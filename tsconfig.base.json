@@ -14,16 +14,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@org/shared-util": ["frontend/libs/shared-util/src/index.ts"],
+      "@org/shared-util": ["frontend/src/lib/shared-util/src/index.ts"],
       "dashboard/Routes": [
-        "frontend/apps/dashboard/src/app/remote-entry/entry.routes.ts"
+        "frontend/src/apps/dashboard/src/app/remote-entry/entry.routes.ts"
       ],
       "settings/Routes": [
-        "frontend/apps/settings/src/app/remote-entry/entry.routes.ts"
+        "frontend/src/apps/settings/src/app/remote-entry/entry.routes.ts"
       ],
       "@org/data-access-auth": [
-        "frontend/libs/shared/data-access-auth/src/index.ts"
-      ]
+        "frontend/src/lib/shared/data-access-auth/src/index.ts"
+      ],
+      "@org/api": ["frontend/src/lib/src/index.ts"],
+      "@org/data-access": ["frontend/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
