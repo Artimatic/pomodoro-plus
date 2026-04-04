@@ -1,18 +1,72 @@
-# New Nx Repository
+# Pomodoro Plus
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+A full-stack Pomodoro timer application built with Angular, NestJS, and Nx.
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+## Getting Started
+# Install nvm-windows from: https://github.com/coreybutler/nvm-windows/releases
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+# Install specific Node version
+nvm install 24.14.1
 
-## Try the full Nx platform
-🚀 If you haven't connected to Nx Cloud yet, [complete your setup here](https://cloud.nx.app/setup/connect-workspace/guide). Get faster builds with remote caching, distributed task execution, and self-healing CI. [See how your workspace can benefit](#nx-cloud).
+# Use that version
+nvm use 24.14.1
+
+# Verify
+node --version  # v24.14.1
+
+# Install all dependencies
+npm install
+
+# Build the frontend application
+npx nx build frontend
+
+# Or using nx directly (faster)
+nx build frontend
+
+# Development build (faster, includes source maps)
+nx build frontend --configuration=development
+
+# Production build (optimized, minified)
+nx build frontend --configuration=production
+
+# Watch mode (rebuilds on file changes)
+nx build frontend --watch
+
+# Build the backend application
+npx nx build backend
+
+# Or using nx directly
+nx build backend
+
+# Development build
+nx build backend --configuration=development
+
+# Production build
+nx build backend --configuration=production
+
+# Terminal 1 - Start Backend
+nx serve backend
+# Backend runs on: http://localhost:3000
+
+# Terminal 2 - Start Frontend
+nx serve frontend
+# Frontend runs on: http://localhost:4200
+
+# Using Nx run-many
+nx run-many --target=serve --projects=frontend,backend --parallel=2
 
 ## Generate a library
 
 ```sh
 npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
+```
+
+## Generate an Angular service
+
+To generate a new Angular service in the project, use:
+
+```sh
+npx nx g @nx/angular:service --name=[service name].service --project=[project name ex: api]
 ```
 
 ## Run tasks

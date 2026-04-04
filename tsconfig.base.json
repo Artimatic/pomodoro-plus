@@ -20,6 +20,8 @@
       "settings/Routes": [
         "frontend/src/apps/settings/src/app/remote-entry/entry.routes.ts"
       ],
+      "@org/api": ["frontend/src/libs/api/src/index.ts"],
+      "@org/shared-ui": ["frontend/src/libs/shared-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
