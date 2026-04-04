@@ -15,13 +15,13 @@
     "baseUrl": ".",
     "paths": {
       "dashboard/Routes": [
-        "frontend/src/apps/dashboard/src/app/remote-entry/entry.routes.ts"
+        "apps/frontend/src/apps/dashboard/src/app/remote-entry/entry.routes.ts"
       ],
       "settings/Routes": [
-        "frontend/src/apps/settings/src/app/remote-entry/entry.routes.ts"
+        "apps/frontend/src/apps/settings/src/app/remote-entry/entry.routes.ts"
       ],
-      "@org/api": ["frontend/src/libs/api/src/index.ts"],
-      "@org/shared-ui": ["frontend/src/libs/shared-ui/src/index.ts"]
+      "@org/api": ["apps/frontend/src/libs/api/src/index.ts"],
+      "@org/shared-ui": ["apps/frontend/src/libs/shared-ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

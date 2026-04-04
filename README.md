@@ -3,7 +3,7 @@
 A full-stack Pomodoro timer application built with Angular, NestJS, and Nx.
 
 ## Getting Started
-# Install nvm-windows from: https://github.com/coreybutler/nvm-windows/releases
+# Install nvm
 
 # Install specific Node version
 nvm install 24.14.1
@@ -18,19 +18,19 @@ node --version  # v24.14.1
 npm install
 
 # Build the frontend application
-npx nx build frontend
+npx nx build shell
 
 # Or using nx directly (faster)
-nx build frontend
+nx build shell
 
 # Development build (faster, includes source maps)
-nx build frontend --configuration=development
+nx build shell --configuration=development
 
 # Production build (optimized, minified)
-nx build frontend --configuration=production
+nx build shell --configuration=production
 
 # Watch mode (rebuilds on file changes)
-nx build frontend --watch
+nx build shell --watch
 
 # Build the backend application
 npx nx build backend
@@ -49,11 +49,11 @@ nx serve backend
 # Backend runs on: http://localhost:3000
 
 # Terminal 2 - Start Frontend
-nx serve frontend
+nx serve shell
 # Frontend runs on: http://localhost:4200
 
 # Using Nx run-many
-nx run-many --target=serve --projects=frontend,backend --parallel=2
+nx run-many --target=serve --projects=shell,backend --parallel=2
 
 ## Generate a library
 
@@ -68,6 +68,10 @@ To generate a new Angular service in the project, use:
 ```sh
 npx nx g @nx/angular:service --name=[service name].service --project=[project name ex: api]
 ```
+
+## Generate an Angular Library
+
+npx nx g @nx/angular:library --name=shared-ui --directory=apps/frontend/src/libs/shared-ui
 
 ## Run tasks
 
