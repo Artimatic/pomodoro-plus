@@ -17,6 +17,9 @@ node --version  # v24.14.1
 # Install all dependencies
 npm install
 
+# Install Angular CLI globally
+npm install -g @angular/cli@latest
+
 # Build the frontend application
 npx nx build shell
 
