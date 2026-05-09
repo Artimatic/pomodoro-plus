@@ -2,7 +2,21 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "ng": "ng",
+    "build:backend": "nx build backend",
+    "build:dashboard": "nx build dashboard",
+    "build:settings": "nx build settings",
+    "build:shell": "nx build shell",
+    "build:all": "nx run-many --target=build --projects=backend,dashboard,settings,shell",
+    "serve:backend": "nx serve backend",
+    "serve:shell": "nx serve shell",
+    "serve:all": "nx run-many --target=serve --projects=backend,shell --parallel=2",
+    "preinstall": "node -e \"if (parseInt(process.versions.node) < 20) { console.error('\\x1b[31m[ERROR] Pomodoro Plus requires Node.js v20 or higher. Current version: ' + process.version + '\\x1b[0m'); process.exit(1); }\""
+  },
   "private": true,
   "devDependencies": {
     "@angular-devkit/architect": "~0.2102.5",
