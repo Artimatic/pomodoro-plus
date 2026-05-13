@@ -7,7 +7,7 @@
   },
   "scripts": {
     "ng": "ng",
-    "build:backend": "nx build backend",
+    "build:backend": "nx build @org/backend",
     "build:dashboard": "nx build dashboard",
     "build:settings": "nx build settings",
     "build:shell": "nx build shell",
@@ -36,11 +36,11 @@
     "@nx/jest": "22.6.1",
     "@nx/js": "^22.6.1",
     "@nx/module-federation": "22.6.1",
-    "@nx/nest": "^22.6.1",
+    "@nx/nest": "^22.7.1",
     "@nx/node": "22.6.1",
     "@nx/playwright": "22.6.1",
     "@nx/web": "22.6.1",
-    "@nx/webpack": "22.6.1",
+    "@nx/webpack": "^22.7.1",
     "@playwright/test": "^1.36.0",
     "@schematics/angular": "~21.2.0",
     "@swc-node/register": "1.11.1",
@@ -70,8 +70,7 @@
   },
   "workspaces": [
     "packages/*",
-    "backend",
-    "backend-e2e"
+    "apps/*"
   ],
   "dependencies": {
     "@angular/common": "~21.2.0",
@@ -84,9 +83,10 @@
     "@nestjs/common": "^11.0.0",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@nestjs/serve-static": "^5.0.5",
+    "@nx/angular": "^22.6.1",
     "axios": "^1.6.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0",
-    "@nx/angular": "^22.6.1"
+    "rxjs": "^7.8.0"
   }
 }
