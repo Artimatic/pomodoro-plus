@@ -5,19 +5,31 @@
   "nx": {
     "targets": {
       "build": {
-        "executor": "nx:run-commands",
+        "executor": "@nx/webpack:webpack",
+        "outputs": ["{options.outputPath}"],
+        "defaultConfiguration": "production",
         "options": {
-          "command": "webpack-cli build",
-          "args": [
-            "--node-env=production"
-          ],
-          "cwd": "backend"
+          "target": "node",
+          "compiler": "tsc",
+          "outputPath": "dist/apps/backend",
+          "main": "apps/backend/src/main.ts",
+          "tsConfig": "apps/backend/tsconfig.app.json",
+          "webpackConfig": "apps/backend/webpack.config.js",
+          "assets": [
+            "apps/backend/src/assets",
+            "apps/backend/src/app.yaml"
+          ]
         },
         "configurations": {
           "development": {
-            "args": [
-              "--node-env=development"
-            ]
+            "optimization": false,
+            "extractLicenses": false,
+            "sourceMap": true
+          },
+          "production": {
+            "optimization": true,
+            "extractLicenses": true,
+            "sourceMap": false
           }
         }
       },
@@ -28,8 +40,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/backend/dist/package.json",
-          "{workspaceRoot}/backend/dist/package-lock.json"
+          "{workspaceRoot}/dist/apps/backend/package.json",
+          "{workspaceRoot}/dist/apps/backend/package-lock.json"
         ],
         "options": {
           "buildTarget": "build"
@@ -41,7 +53,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/backend/dist/workspace_modules"
+          "{workspaceRoot}/dist/apps/backend/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -64,7 +76,9 @@
         ],
         "options": {
           "buildTarget": "@org/backend:build",
-          "runBuildTargetDependencies": false
+          "runBuildTargetDependencies": false,
+          "inspect": false,
+          "port": 3000
         },
         "configurations": {
           "development": {

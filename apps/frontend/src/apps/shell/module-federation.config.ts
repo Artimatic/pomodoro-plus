@@ -1,4 +1,8 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
+const DASHBOARD_URL =
+  process.env['DASHBOARD_REMOTE_URL'] ?? 'http://localhost:3000/dashboard';
+const SETTINGS_URL =
+  process.env['SETTINGS_REMOTE_URL'] ?? 'http://localhost:3000/settings';
 
 const config: ModuleFederationConfig = {
   name: 'shell',
@@ -14,7 +18,10 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['dashboard', 'settings'],
+  remotes: [
+    ['dashboard', DASHBOARD_URL],
+    ['settings', SETTINGS_URL],
+  ],
 };
 
 /**
