@@ -1,11 +1,14 @@
 {
-  "name": "@org/source",
+  "name": "pomodoro-plus",
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24.15.0"
   },
   "scripts": {
+    "start": "node dist/apps/backend/main.js",
+    "predeploy": "npm run build:all",
+    "deploy": "cd dist && nx run backend:deploy",
     "ng": "ng",
     "build:backend": "nx build @org/backend",
     "build:dashboard": "nx build dashboard",

@@ -22,6 +22,13 @@ const config: ModuleFederationConfig = {
     ['dashboard', DASHBOARD_URL],
     ['settings', SETTINGS_URL],
   ],
+  shared: (libraryName, sharedConfig) => {
+    // Force the auth service to be a singleton across all federated modules
+    if (libraryName === '@pomodoro-plus/shared-auth') {
+      return { ...sharedConfig, singleton: true, strictVersion: true, eager: false };
+    }
+    return sharedConfig;
+  },
 };
 
 /**

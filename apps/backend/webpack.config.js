@@ -2,6 +2,14 @@ const { NxAppWebpackPlugin } = require('@nx/webpack/app-plugin');
 const { join } = require('path');
 
 module.exports = {
+  watchOptions: {
+    ignored: [
+      'dist',
+      '**/node_modules/**',
+      join(__dirname, '../../dist/apps/backend'),
+      '**/.git/**'
+    ],
+  },
   output: {
     path: join(__dirname, '../../dist/apps/backend'),
     clean: true,

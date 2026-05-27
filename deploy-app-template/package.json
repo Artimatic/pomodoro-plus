@@ -1,0 +1,23 @@
+{
+    "name": "pomodoro-plus",
+    "version": "1.0.0",
+    "private": true,
+    "main": "server.js",
+    "scripts": {
+      "build": "npm install",
+      "start": "node backend/main.js",
+      "deploy": "gcloud app deploy"
+    },
+    "engines": {
+      "node": "24.x.x"
+    },
+    "dependencies": {
+      "@nestjs/common": "^11.0.0",
+      "@nestjs/core": "^11.0.0",
+      "@nestjs/platform-express": "^11.0.0",
+      "@nestjs/serve-static": "^5.0.5",
+      "reflect-metadata": "^0.1.13",
+      "rxjs": "^7.8.0",
+      "tslib": "^2.6.2"
+    }
+  }

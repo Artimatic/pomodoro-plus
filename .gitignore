@@ -1,63 +1,30 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Exclude standard git files
+.git/
 
-# compiled output
-dist
-tmp
-out-tsc
+# Exclude dependencies
+node_modules/
 
-# dependencies
-node_modules
+# Exclude build artifacts
+dist/
+tmp/
+out-tsc/
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Exclude Nx cache and workspace metadata (CRITICAL)
+.nx/cache/
+.nx/workspace-data/
+.nx/tmp/
+.nx/polygraph/
+*.db
+*.db-shm
+*.db-wal
 
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
-.DS_Store
-Thumbs.db
-
-# Nx
-.nx/cache
-.nx/workspace-data
-
-# Environment variables
+# Exclude environment and local configs
 .env
 .env.local
 .env.production
+.vscode/
 
-# Logs
-*.log
-
-# Temporary files
-.nx/tmp
-
-# Test output
-test-output
-
-.angular
-
-.nx/polygraph
-.claude/worktrees
-.claude/settings.local.json
+# Exclude system files
+.DS_Store
+Thumbs.db
+/.angular
