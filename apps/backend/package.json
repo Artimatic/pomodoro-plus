@@ -47,7 +47,7 @@
           "commands": [
             "nx build backend",
             "node tools/generate-runtime-package-json.js",
-            "gcloud app deploy app.yaml --quiet"
+            "gcloud app deploy app.private.yaml --quiet"
           ]
         }
       },

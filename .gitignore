@@ -28,3 +28,5 @@ out-tsc/
 .DS_Store
 Thumbs.db
 /.angular
+
+app.private.yaml
