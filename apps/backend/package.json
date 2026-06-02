@@ -6,6 +6,12 @@
     "targets": {
       "build": {
         "executor": "@nx/webpack:webpack",
+        "dependsOn": [
+          {
+            "projects": ["shell"],
+            "target": "build"
+          }
+        ],
         "outputs": [
           "{options.outputPath}"
         ],
@@ -37,18 +43,27 @@
       },
       "postbuild": {
         "executor": "nx:run-commands",
+        "dependsOn": [
+          "build"
+        ],
         "options": {
-          "command": "node tools/generate-runtime-package-json.js"
+          "commands": [
+            "node tools/generate-runtime-package-json.js",
+            "node tools/copy-shell.js"
+          ],
+          "parallel": false
         }
       },
       "deploy": {
         "executor": "nx:run-commands",
+        "dependsOn": [
+          "postbuild"
+        ],
         "options": {
           "commands": [
-            "nx build backend",
-            "node tools/generate-runtime-package-json.js",
-            "gcloud app deploy app.private.yaml --quiet"
-          ]
+            "cd dist/apps/backend && gcloud app deploy --quiet"
+          ],
+          "parallel": false
         }
       },
       "prune-lockfile": {

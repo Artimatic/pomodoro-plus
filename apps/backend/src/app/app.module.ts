@@ -9,15 +9,15 @@ import { AppService } from './app.service';
   imports: [
     ServeStaticModule.forRoot(
       {
-        rootPath: join(__dirname, '..', 'frontend', 'src', 'apps', 'dashboard'),
+        rootPath: join(__dirname, 'public', 'dashboard'),
         serveRoot: '/dashboard',
       },
       {
-        rootPath: join(__dirname, '..', 'frontend', 'src', 'apps', 'settings'),
+        rootPath: join(__dirname, 'public', 'settings'),
         serveRoot: '/settings',
       },
       {
-        rootPath: join(__dirname, '..', 'frontend', 'src', 'apps', 'shell'),
+        rootPath: join(__dirname, 'public', 'shell'),
         serveRoot: '/', // Main Shell
         exclude: ['/api/(.*)'],
       },

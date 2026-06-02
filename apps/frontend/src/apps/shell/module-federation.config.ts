@@ -1,8 +1,9 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
+
 const DASHBOARD_URL =
-  process.env['DASHBOARD_REMOTE_URL'] ?? 'http://localhost:3000/dashboard';
+  process.env['DASHBOARD_REMOTE_URL'] ?? '/dashboard';
 const SETTINGS_URL =
-  process.env['SETTINGS_REMOTE_URL'] ?? 'http://localhost:3000/settings';
+  process.env['SETTINGS_REMOTE_URL'] ?? '/settings';
 
 const config: ModuleFederationConfig = {
   name: 'shell',
