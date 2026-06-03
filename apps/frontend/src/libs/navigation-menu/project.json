@@ -4,7 +4,7 @@
   "sourceRoot": "apps/frontend/src/libs/navigation-menu/src",
   "prefix": "lib",
   "projectType": "library",
-  "tags": [],
+  "tags": ["type:ui"],
   "targets": {
     "test": {
       "executor": "@nx/jest:jest",
