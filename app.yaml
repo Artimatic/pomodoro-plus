@@ -1,0 +1,8 @@
+runtime: nodejs24
+instance_class: F1
+service: default
+
+# Inject production environment variables here
+env_variables:
+  NODE_ENV: 'production'
+  # DATABASE_URL: 'YOUR_DATABASE_CONNECTION_STRING'

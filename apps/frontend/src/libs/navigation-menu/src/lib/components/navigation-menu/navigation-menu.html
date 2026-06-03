@@ -1,0 +1,49 @@
+<nav class="nav-container">
+  <ng-container *ngFor="let item of menuItems">
+    
+    <button *ngIf="item.children && item.children.length > 0"
+            mat-button 
+            [matMenuTriggerFor]="subMenu">
+      <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+      {{ item.label }}
+      <mat-icon class="dropdown-arrow">arrow_drop_down</mat-icon>
+    </button>
+
+    <a *ngIf="!item.children || item.children.length === 0"
+       mat-button 
+       [routerLink]="item.route"
+       routerLinkActive="active-link">
+      <mat-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
+      {{ item.label }}
+    </a>
+
+    <mat-menu #subMenu="matMenu">
+      <ng-container *ngTemplateOutlet="menuNode; context: { $implicit: item.children }"></ng-container>
+    </mat-menu>
+
+  </ng-container>
+</nav>
+
+<ng-template #menuNode let-children>
+  <ng-container *ngFor="let child of children">
+    
+    <button *ngIf="child.children && child.children.length > 0"
+            mat-menu-item 
+            [matMenuTriggerFor]="nestedMenu">
+      <mat-icon *ngIf="child.icon">{{ child.icon }}</mat-icon>
+      <span>{{ child.label }}</span>
+    </button>
+    <mat-menu #nestedMenu="matMenu">
+      <ng-container *ngTemplateOutlet="menuNode; context: { $implicit: child.children }"></ng-container>
+    </mat-menu>
+
+    <a *ngIf="!child.children || child.children.length === 0"
+       mat-menu-item 
+       [routerLink]="child.route"
+       routerLinkActive="active-link">
+      <mat-icon *ngIf="child.icon">{{ child.icon }}</mat-icon>
+      <span>{{ child.label }}</span>
+    </a>
+
+  </ng-container>
+</ng-template>

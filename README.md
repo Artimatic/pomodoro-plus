@@ -76,6 +76,20 @@ npx nx g @nx/angular:service --name=[service name].service --project=[project na
 
 npx nx g @nx/angular:library --name=shared-ui --directory=apps/frontend/src/libs/shared-ui
 
+## Generate an Angular Component
+
+Use this command:
+
+```bash
+npx nx g @nx/angular:component navigation --project=shell --path=apps/frontend/src/apps/shell/src/app
+```
+
+If you want the component in its own folder, add `--flat=false`:
+
+```bash
+npx nx g @nx/angular:component navigation --project=shell --path=apps/frontend/src/apps/shell/src/app --flat=false
+```
+
 ## Run tasks
 
 To build the library use:

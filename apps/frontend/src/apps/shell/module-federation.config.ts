@@ -1,8 +1,7 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
-const DASHBOARD_URL =
-  process.env['DASHBOARD_REMOTE_URL'] ?? 'http://localhost:3000/dashboard';
-const SETTINGS_URL =
-  process.env['SETTINGS_REMOTE_URL'] ?? 'http://localhost:3000/settings';
+
+const DASHBOARD_URL = process.env['DASHBOARD_REMOTE_URL'] ?? '/dashboard';
+const SETTINGS_URL = process.env['SETTINGS_REMOTE_URL'] ?? '/settings';
 
 const config: ModuleFederationConfig = {
   name: 'shell',
@@ -20,8 +19,20 @@ const config: ModuleFederationConfig = {
    */
   remotes: [
     ['dashboard', DASHBOARD_URL],
-    ['settings', SETTINGS_URL],
+    ['settings', SETTINGS_URL]
   ],
+  shared: (libraryName, sharedConfig) => {
+    // Force the auth service to be a singleton across all federated modules
+    if (libraryName === '@pomodoro-plus/shared-auth') {
+      return {
+        ...sharedConfig,
+        singleton: true,
+        strictVersion: true,
+        eager: false,
+      };
+    }
+    return sharedConfig;
+  },
 };
 
 /**

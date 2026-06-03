@@ -6,7 +6,15 @@
     "targets": {
       "build": {
         "executor": "@nx/webpack:webpack",
-        "outputs": ["{options.outputPath}"],
+        "dependsOn": [
+          {
+            "projects": ["shell"],
+            "target": "build"
+          }
+        ],
+        "outputs": [
+          "{options.outputPath}"
+        ],
         "defaultConfiguration": "production",
         "options": {
           "target": "node",
@@ -31,6 +39,31 @@
             "extractLicenses": true,
             "sourceMap": false
           }
+        }
+      },
+      "postbuild": {
+        "executor": "nx:run-commands",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "commands": [
+            "node tools/generate-runtime-package-json.js",
+            "node tools/copy-shell.js"
+          ],
+          "parallel": false
+        }
+      },
+      "deploy": {
+        "executor": "nx:run-commands",
+        "dependsOn": [
+          "postbuild"
+        ],
+        "options": {
+          "commands": [
+            "cd dist/apps/backend && gcloud app deploy --quiet"
+          ],
+          "parallel": false
         }
       },
       "prune-lockfile": {
@@ -75,17 +108,17 @@
           "build"
         ],
         "options": {
-          "buildTarget": "@org/backend:build",
+          "buildTarget": "build",
           "runBuildTargetDependencies": false,
           "inspect": false,
           "port": 3000
         },
         "configurations": {
           "development": {
-            "buildTarget": "@org/backend:build:development"
+            "buildTarget": "build:development"
           },
           "production": {
-            "buildTarget": "@org/backend:build:production"
+            "buildTarget": "build:production"
           }
         }
       },

@@ -1,0 +1,30 @@
+# Files and folders to exclude from gcloud deployments.
+# Based on .gitignore but intentionally NOT ignoring `dist/` so
+# prebuilt artifacts are deployed for App Engine Standard.
+
+.git/
+node_modules/
+tmp/
+out-tsc/
+.nx/cache/
+.nx/workspace-data/
+.nx/tmp/
+.nx/polygraph/
+*.db
+*.db-shm
+*.db-wal
+.env
+.env.local
+.env.production
+.vscode/
+.DS_Store
+Thumbs.db
+/.angular
+app.private.yaml
+.gcloudignore
+.git
+.gitignore
+node_modules/
+dist/
+npm-debug.log
+.env

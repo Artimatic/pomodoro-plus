@@ -1,10 +1,12 @@
-runtime: nodejs20
+runtime: nodejs24
 instance_class: F1
 service: default
 
 env_variables:
   NODE_ENV: "production"
-
+  DASHBOARD_REMOTE_URL: "https://davidchan.appspot.com"
+  SETTINGS_REMOTE_URL: "https://davidchan.appspot.com"
 handlers:
   - url: /.*
     script: auto
+

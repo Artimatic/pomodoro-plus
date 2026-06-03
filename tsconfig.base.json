@@ -21,7 +21,10 @@
         "apps/frontend/src/apps/settings/src/app/remote-entry/entry.routes.ts"
       ],
       "@org/api": ["apps/frontend/src/libs/api/src/index.ts"],
-      "@org/shared-ui": ["apps/frontend/src/libs/shared-ui/src/index.ts"]
+      "@org/shared-ui": ["apps/frontend/src/libs/shared-ui/src/index.ts"],
+      "navigation-menu": [
+        "./apps/frontend/src/libs/navigation-menu/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

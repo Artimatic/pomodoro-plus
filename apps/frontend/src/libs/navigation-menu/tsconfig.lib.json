@@ -1,9 +1,11 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../../dist/out-tsc",
-    "types": [],
-    "target": "ES2020"
+    "outDir": "../../../../../dist/out-tsc",
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "types": []
   },
   "include": ["src/**/*.ts"],
   "exclude": [
@@ -12,10 +14,5 @@
     "jest.config.ts",
     "jest.config.cts",
     "src/test-setup.ts"
-  ],
-  "references": [
-    {
-      "path": "../../libs/navigation-menu"
-    }
   ]
 }

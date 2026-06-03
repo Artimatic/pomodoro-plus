@@ -14,9 +14,5 @@
     "src/test-setup.ts"
   ],
   "files": ["src/app/remote-entry/entry.routes.ts"],
-  "references": [
-    {
-      "path": "../../.."
-    }
-  ]
+  "references": []
 }

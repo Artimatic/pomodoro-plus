@@ -1,6 +1,6 @@
-<ul class="remote-menu">
-  <li><a routerLink="/">Home</a></li>
-  <li><a routerLink="dashboard">Dashboard</a></li>
-  <li><a routerLink="settings">Settings</a></li>
-</ul>
+<lib-navigation-menu [menuItems]="[
+  { label: 'Home', route: '/' },
+  { label: 'Dashboard', route: '/dashboard' },
+  { label: 'Settings', route: '/settings' }
+]"></lib-navigation-menu>
 <router-outlet></router-outlet>
