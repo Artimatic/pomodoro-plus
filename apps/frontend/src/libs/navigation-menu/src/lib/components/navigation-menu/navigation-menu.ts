@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NavItem } from '../../interfaces/navigation-item.interface';
 @Component({
   selector: 'lib-navigation-menu',
+  standalone: true,
   imports: [
     CommonModule,
     RouterModule,
